@@ -1,0 +1,65 @@
+h1
+{
+    color: #17dbb7;
+    font-size: 40px;
+    display: grid;
+    place-content: center;
+}
+.employee_table_td, .employee_table th, .employee_table td
+{
+    border-collapse: collapse;
+    border-style: solid;
+    border-width: 3px;
+}
+.employee_table caption
+{
+    font-size: 20px;
+}
+.employee_table_tr, .employee_table th, .employee_table_td, .employee_table td
+{
+    width: 170px;
+    height: 25px;
+}
+.employee_table
+{
+    display: grid;
+    place-content: center;
+    border-collapse: collapse;
+}
+
+.add_button_block
+{
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.add_button_block input
+{
+    width: 100px;
+    height: 40px;
+    background-color: #17dbb7;
+    border-radius: 10px;
+    margin: 10px;
+}
+.update_button
+{
+    width: 80px;
+    height: 25px;
+    background-color: #3ea532;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+.delete_button
+{
+    width: 80px;
+    height: 25px;
+    background-color: #e53e3e;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+.temp_add_button
+{
+    height: 25px;
+    width:170px;
+    background-color: #17dbb7;
+}
