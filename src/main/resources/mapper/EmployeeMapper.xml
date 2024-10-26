@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="org.example.restfulcrudtest.mapper.EmployeeMapper">
-    <insert id="insertEmp">
+    <insert id="insertEmp" useGeneratedKeys="true" keyProperty="id">
         insert into employee_information(name, age, salary) values (#{name}, #{age}, #{salary})
     </insert>
     <update id="updateEmp">
@@ -21,5 +21,38 @@
     </select>
     <select id="getLatestId" resultType="java.lang.Integer">
         select max(id) from employee_information
+    </select>
+    <select id="queryByNameApproximately" resultType="org.example.restfulcrudtest.bean.Employee">
+        select * from employee_information where name like concat('%', #{name}, '%')
+    </select>
+    <select id="queryBySalary" resultType="org.example.restfulcrudtest.bean.Employee">
+        select * from employee_information where salary = #{salary}
+    </select>
+    <select id="queryByHigherSalary" resultType="org.example.restfulcrudtest.bean.Employee">
+        select * from employee_information where salary > #{salary}
+    </select>
+    <select id="queryByLowerSalary" resultType="org.example.restfulcrudtest.bean.Employee">
+        select * from employee_information where #{salary} > salary
+    </select>
+    <select id="queryByHigherAndEqualSalary" resultType="org.example.restfulcrudtest.bean.Employee">
+        select * from employee_information where salary >= #{salary}
+    </select>
+    <select id="queryByLowerAndEqualSalary" resultType="org.example.restfulcrudtest.bean.Employee">
+        select * from employee_information where #{salary} >= salary
+    </select>
+    <select id="queryByHigherSalaryAndName" resultType="org.example.restfulcrudtest.bean.Employee">
+        select * from employee_information where salary > #{salary} and name like concat('%', #{name}, '%')
+    </select>
+    <select id="queryByLowerSalaryAndName" resultType="org.example.restfulcrudtest.bean.Employee">
+        select * from employee_information where #{salary} > salary and name like concat('%', #{name}, '%')
+    </select>
+    <select id="queryBySalaryAndName" resultType="org.example.restfulcrudtest.bean.Employee">
+        select * from employee_information where salary = #{salary} and name like concat('%', #{name}, '%')
+    </select>
+    <select id="queryByHigherAndEqualSalaryAndName" resultType="org.example.restfulcrudtest.bean.Employee">
+        select * from employee_information where salary >= #{salary} and name like concat('%', #{name}, '%')
+    </select>
+    <select id="queryByLowerAndEqualSalaryAndName" resultType="org.example.restfulcrudtest.bean.Employee">
+        select * from employee_information where #{salary} >= salary and name like concat('%', #{name}, '%')
     </select>
 </mapper>

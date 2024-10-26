@@ -1,8 +1,11 @@
 package org.example.restfulcrudtest;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.example.restfulcrudtest.bean.Employee;
 import org.example.restfulcrudtest.mapper.EmployeeMapper;
 import org.junit.jupiter.api.Test;
+import org.junit.platform.commons.logging.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -37,6 +40,13 @@ class ResTfulCrudTestApplicationTests {
 	public void readMaxIdTest()
 	{
 		System.out.println(employeeMapper.getLatestId());
+	}
+
+	Logger logger = LogManager.getLogger(ResTfulCrudTestApplicationTests.class);
+	@Test
+	public void logTest()
+	{
+		logger.info("Hello world");
 	}
 
 }

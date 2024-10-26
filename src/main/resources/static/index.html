@@ -10,20 +10,27 @@
     <h1>
         Employees Information System
     </h1>
-    <table id="employee_table" class="employee_table">
-        <caption>Employees List</caption>
-        <tr class="employee_table_tr">
-            <th>ID</th>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Salary</th>
-            <th>Actions</th>
-        </tr>
-    </table>
     <div class="add_button_block">
-        <input type="button" value="Add New" onclick="addEmployeeBegin()" id="add_button" class="add_button">
-        <input type="button" value="QueryByName" onclick="queryEmployeeByName()" id="query_button" class="query_name_button">
-        <input type="button" value="QueryBySalary" onclick="queryEmployeeBySalary()" id="clear_button" class="query_salary_button"></input>
+        <input type="button" value="AddNew" onclick="addEmployeeBegin()" id="add_button" class="add_button">
+        <input type="button" value="QueryByName" onclick="queryEmployeeByNameBegin()" id="query_button" class="query_name_button">
+        <input type="button" value="QueryBySalary" onclick="queryEmployeeBySalaryBegin()" id="clear_button" class="query_salary_button">
+        <input type="button" value="Refresh" onclick="reloadPage()" id="refresh_button" class="refresh_button">
     </div>
+    <div class="query_block" id="query_block"> </div>
+    <table id="employee_table" class="employee_table">
+        <caption>Employee List</caption>
+        <table_head id="employee_table_head">
+            <tr class="employee_table_tr">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Salary</th>
+                <th>Actions</th>
+            </tr>
+        </table_head>
+        <table_body id="employee_table_body">
+
+        </table_body>
+    </table>
 </body>
 </html>

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,6 +36,7 @@ public class CRUDController
         employeeService.insertEmployee(employee);
         Map<String, String> result = new HashMap<>();
         result.put("id", employee.getId().toString());
+        System.out.println(result);
         return result;
     }
 
@@ -46,10 +48,34 @@ public class CRUDController
         return new ResponseEntity<>(initializeInformation, null, HttpStatus.OK);
     }
 
-    @RequestMapping("/getLatestId")
-    public Map<String, String> getLatestId()
+    @RequestMapping("/deleteEmployee")
+    public void deleteEmployee(Integer id)
     {
-        String id = employeeService.getLatestId();
-        return Map.of("id", id);
+        employeeService.deleteEmpById(id);
+    }
+
+    @RequestMapping("/queryByName")
+    public List<Employee> queryByNameApproximately(@RequestBody Employee employee)
+    {
+        System.out.println("Query by name: " + employee.getName());
+        List<Employee> result = employeeService.queryByNameApproximately(employee.getName());
+        return result;
+    }
+
+    @RequestMapping("/queryBySalary")
+    public List<Employee> queryBySalary(@RequestBody String salaryInformation)
+    {
+        List<Employee> result = employeeService.queryBySalary(salaryInformation);
+        System.out.println("Query by salary: " + salaryInformation);
+        System.out.println("Query result: " + result);
+        return result;
+    }
+
+    @RequestMapping("/queryByNameAndSalary")
+    public List<Employee> queryByNameAndSalary(@RequestBody Map<String, String> queryInformation)
+    {
+        String name = queryInformation.get("name");
+        String salaryInformation = queryInformation.get("salary");
+        return employeeService.queryByNameAndSalary(name, salaryInformation);
     }
 }
