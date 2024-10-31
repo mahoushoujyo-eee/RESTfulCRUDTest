@@ -34,6 +34,7 @@ public class EmployeeService
 
     public void deleteEmpById(Integer id)
     {
+        System.out.println("Delete employee with id: " + id);
         employeeMapper.deleteEmpById(id);
     }
 
@@ -97,5 +98,10 @@ public class EmployeeService
         else if (operator.equals("="))
             return employeeMapper.queryBySalaryAndName(salary, name);
         return null;
+    }
+
+    public void updateEmp(Employee employee)
+    {
+        employeeMapper.updateEmp(employee);
     }
 }

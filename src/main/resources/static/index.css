@@ -1,3 +1,5 @@
+
+
 h1
 {
     color: #17dbb7;
@@ -58,6 +60,13 @@ h1
     margin-left: 5px;
 }
 .temp_add_button
+{
+    height: 25px;
+    width:170px;
+    background-color: #17dbb7;
+}
+
+.temp_update_button
 {
     height: 25px;
     width:170px;

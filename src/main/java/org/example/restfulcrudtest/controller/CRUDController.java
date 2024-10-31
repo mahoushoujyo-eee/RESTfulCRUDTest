@@ -49,9 +49,17 @@ public class CRUDController
     }
 
     @RequestMapping("/deleteEmployee")
-    public void deleteEmployee(Integer id)
+    public void deleteEmployee(@RequestBody String id)
     {
-        employeeService.deleteEmpById(id);
+        Integer idInt = Integer.parseInt(id);
+        employeeService.deleteEmpById(idInt);
+    }
+
+    @RequestMapping("/updateEmployee")
+    public void updateEmployee(@RequestBody Employee employee)
+    {
+        System.out.println("Updated employee: " + employee);
+        employeeService.updateEmp(employee);
     }
 
     @RequestMapping("/queryByName")
